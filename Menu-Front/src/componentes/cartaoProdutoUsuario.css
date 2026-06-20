@@ -1,0 +1,62 @@
+.cartao-usuario {
+    width: 280px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+}
+
+.cartao-usuario:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+}
+
+.cartao-usuario img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.cartao-usuario-conteudo {
+    padding: 14px 16px;
+    flex: 1;
+}
+
+.cartao-usuario-conteudo h2 {
+    font-size: 1.05rem;
+    margin: 0 0 8px 0;
+    color: #222;
+}
+
+.cartao-usuario-conteudo p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.preco-usuario {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1976d2;
+    margin-top: 10px;
+}
+
+.btn-adicionar {
+    margin: 0 16px 16px;
+    padding: 10px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-adicionar:hover {
+    background-color: #1b5e20;
+}

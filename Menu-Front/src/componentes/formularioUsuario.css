@@ -1,0 +1,42 @@
+.formulario-usuario {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.formulario-usuario h2 {
+    margin: 0 0 4px 0;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.formulario-usuario input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.formulario-usuario input:focus {
+    border-color: #1976d2;
+}
+
+.formulario-usuario button[type="submit"] {
+    padding: 10px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.formulario-usuario button[type="submit"]:hover {
+    background-color: #1565c0;
+}

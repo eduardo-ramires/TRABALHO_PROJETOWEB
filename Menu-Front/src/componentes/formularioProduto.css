@@ -1,0 +1,28 @@
+.formulario {
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario button {
+    padding: 10px;
+}
+
+.formulario textarea {
+    height: 80px;
+}
+
+.formulario input:disabled,
+.formulario textarea:disabled {
+    background-color: #f5f5f5;
+    color: #555;
+    cursor: default;
+    border-color: #ddd;
+}

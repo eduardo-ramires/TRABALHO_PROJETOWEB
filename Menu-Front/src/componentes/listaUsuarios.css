@@ -1,0 +1,64 @@
+.lista-usuarios {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.grupo-usuarios h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 12px 0;
+}
+
+.grade-usuarios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item-usuario {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.item-mesa {
+    color: #1565c0;
+    border-color: #90caf9;
+    background-color: #e3f2fd;
+}
+
+.item-adm {
+    color: #6a1b9a;
+    border-color: #ce93d8;
+    background-color: #f3e5f5;
+}
+
+.btn-deletar-usuario {
+    background: none;
+    border: none;
+    color: #e53935;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.2s;
+}
+
+.btn-deletar-usuario:hover {
+    opacity: 0.7;
+}
+
+.lista-vazio {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin: 0;
+}
