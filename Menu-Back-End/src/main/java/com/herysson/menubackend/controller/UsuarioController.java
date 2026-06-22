@@ -1,7 +1,8 @@
 package com.herysson.menubackend.controller;
 
-import com.herysson.menubackend.model.Usuario;
-import com.herysson.menubackend.repository.UsuarioRepository;
+import com.herysson.menubackend.dto.UsuarioRequestDTO;
+import com.herysson.menubackend.dto.UsuarioResponseDTO;
+import com.herysson.menubackend.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,35 +12,34 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class UsuarioController {
 
-    private final UsuarioRepository repository;
+    private final UsuarioService service;
 
-    public UsuarioController(UsuarioRepository repository) {
-        this.repository = repository;
+    public UsuarioController(UsuarioService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public List<Usuario> listarTodos() {
-        return repository.findAll();
+    public List<UsuarioResponseDTO> listarTodos() {
+        return service.listarTodos();
     }
 
     @PostMapping
-    public Usuario criar(@RequestBody Usuario usuario) {
-        return repository.save(usuario);
+    public UsuarioResponseDTO criar(@RequestBody UsuarioRequestDTO dto) {
+        return service.criar(dto);
     }
 
     @GetMapping("/{id}")
-    public Usuario buscarPorId(@PathVariable Long id) {
-        return repository.findById(id).orElseThrow();
+    public UsuarioResponseDTO buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Usuario atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
-        usuario.setId(id);
-        return repository.save(usuario);
+    public UsuarioResponseDTO atualizar(@PathVariable Long id, @RequestBody UsuarioRequestDTO dto) {
+        return service.atualizar(id, dto);
     }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
-        repository.deleteById(id);
+        service.deletar(id);
     }
 }

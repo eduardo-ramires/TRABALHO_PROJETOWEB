@@ -1,7 +1,8 @@
 package com.herysson.menubackend.controller;
 
-import com.herysson.menubackend.model.Produto;
-import com.herysson.menubackend.repository.ProdutoRepository;
+import com.herysson.menubackend.dto.ProdutoRequestDTO;
+import com.herysson.menubackend.dto.ProdutoResponseDTO;
+import com.herysson.menubackend.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,35 +12,34 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class ProdutoController {
 
-    private final ProdutoRepository repository;
+    private final ProdutoService service;
 
-    public ProdutoController(ProdutoRepository repository) {
-        this.repository = repository;
+    public ProdutoController(ProdutoService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public List<Produto> listarTodos() {
-        return repository.findAll();
+    public List<ProdutoResponseDTO> listarTodos() {
+        return service.listarTodos();
     }
 
     @PostMapping
-    public Produto criar(@RequestBody Produto produto) {
-        return repository.save(produto);
+    public ProdutoResponseDTO criar(@RequestBody ProdutoRequestDTO dto) {
+        return service.criar(dto);
     }
 
     @GetMapping("/{id}")
-    public Produto buscarPorId(@PathVariable Long id) {
-        return repository.findById(id).orElseThrow();
+    public ProdutoResponseDTO buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Produto atualizar(@PathVariable Long id, @RequestBody Produto produto) {
-        produto.setId(id);
-        return repository.save(produto);
+    public ProdutoResponseDTO atualizar(@PathVariable Long id, @RequestBody ProdutoRequestDTO dto) {
+        return service.atualizar(id, dto);
     }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
-        repository.deleteById(id);
+        service.deletar(id);
     }
 }

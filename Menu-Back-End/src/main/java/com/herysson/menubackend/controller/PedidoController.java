@@ -1,7 +1,8 @@
 package com.herysson.menubackend.controller;
 
-import com.herysson.menubackend.model.Pedido;
-import com.herysson.menubackend.repository.PedidoRepository;
+import com.herysson.menubackend.dto.PedidoRequestDTO;
+import com.herysson.menubackend.dto.PedidoResponseDTO;
+import com.herysson.menubackend.service.PedidoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,35 +12,35 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class PedidoController {
 
-    private final PedidoRepository repository;
+    private final PedidoService service;
 
-    public PedidoController(PedidoRepository repository) {
-        this.repository = repository;
+    public PedidoController(PedidoService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public List<Pedido> listarTodos() {
-        return repository.findAll();
+    public List<PedidoResponseDTO> listarTodos() {
+        return service.listarTodos();
     }
 
     @PostMapping
-    public Pedido criar(@RequestBody Pedido pedido) {
-        return repository.save(pedido);
+    public PedidoResponseDTO criar(@RequestBody PedidoRequestDTO dto) {
+        return service.criar(dto);
     }
 
     @GetMapping("/{id}")
-    public Pedido buscarPorId(@PathVariable Long id) {
-        return repository.findById(id).orElseThrow();
+    public PedidoResponseDTO buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Pedido atualizar(@PathVariable Long id, @RequestBody Pedido pedido) {
-        pedido.setId(id);
-        return repository.save(pedido);
+    public PedidoResponseDTO atualizar(@PathVariable Long id, @RequestBody PedidoRequestDTO dto) {
+        return service.atualizar(id, dto);
     }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
-        repository.deleteById(id);
-    }
+        service.deletar(id);
+        }
+
 }
