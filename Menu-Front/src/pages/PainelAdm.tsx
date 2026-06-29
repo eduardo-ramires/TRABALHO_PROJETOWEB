@@ -7,11 +7,13 @@ import { ListaUsuarios } from "../componentes/ListaUsuarios";
 import { useProdutoDados } from "../hooks/useProdutoDados";
 import { useUsuarioDados } from "../hooks/useUsuarioDados";
 import type { ProdutoDados } from "../interfaces/ProdutoDados";
+import { ListaPedidos } from "../componentes/ListaPedidos";
+import { usePedidoDados } from "../hooks/usePedidoDados";
 import "./painelAdm.css";
 
 export default function PainelAdm() {
     const navigate = useNavigate();
-    const [aba, setAba] = useState<"produtos" | "usuarios">("produtos");
+    const [aba, setAba] = useState<"produtos" | "usuarios" | "pedidos">("produtos");
     const [modalProdutoAberto, setModalProdutoAberto] = useState(false);
     const [produtoParaEditar, setProdutoParaEditar] = useState<ProdutoDados | null>(null);
     const [somenteLeitura, setSomenteLeitura] = useState(false);
@@ -20,6 +22,7 @@ export default function PainelAdm() {
 
     const { data: produtos } = useProdutoDados();
     const { data: usuarios } = useUsuarioDados();
+    const { data: pedidos } = usePedidoDados();
 
     useEffect(() => {
         if (!sessionStorage.getItem("adm-autenticado")) {
@@ -78,6 +81,12 @@ export default function PainelAdm() {
                 >
                     Mesas &amp; ADMs
                 </button>
+                <button
+                    className={`aba ${aba === "pedidos" ? "aba-ativa" : ""}`}
+                    onClick={() => setAba("pedidos")}
+                >
+                    Pedidos
+                </button>
             </div>
 
             {aba === "produtos" && (
@@ -120,6 +129,12 @@ export default function PainelAdm() {
                         </button>
                     </div>
                     <ListaUsuarios usuarios={usuarios ?? []} />
+                </div>
+            )}
+
+            {aba === "pedidos" && (
+                <div className="painel-secao">
+                    <ListaPedidos pedidos={pedidos ?? []} />
                 </div>
             )}
 
