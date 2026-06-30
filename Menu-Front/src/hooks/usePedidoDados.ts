@@ -14,5 +14,7 @@ export function usePedidoDados() {
         queryKey: ["pedido-dados"],
         queryFn: buscarDados,
         retry: 2,
+        refetchInterval: 5000,
+        refetchIntervalInBackground: true,
     });
 }

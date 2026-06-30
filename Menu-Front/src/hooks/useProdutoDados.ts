@@ -14,5 +14,7 @@ export function useProdutoDados() {
         queryKey: ["produto-dados"],
         queryFn: buscarDados,
         retry: 2,
+        refetchInterval: 10000,
+        refetchIntervalInBackground: true,
     });
 }
