@@ -41,14 +41,18 @@ TRABALHO_PROJETOWEB/
 
 ### Banco de Dados
 
-Crie um banco de dados MySQL e configure as credenciais em `Menu-Back-End/src/main/resources/application.properties`:
+É necessário ter um servidor MySQL rodando localmente. O banco `menu` e as tabelas são criados automaticamente na primeira execução (`createDatabaseIfNotExist=true` + `ddl-auto=update`), não sendo necessário criá-los manualmente.
+
+As credenciais ficam em `Menu-Back-End/src/main/resources/application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/cardapio
+spring.datasource.url=jdbc:mysql://localhost:3306/menu?createDatabaseIfNotExist=true
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 spring.jpa.hibernate.ddl-auto=update
 ```
+
+Por padrão o projeto usa o usuário `root` sem senha. Ajuste `spring.datasource.username` e `spring.datasource.password` conforme as credenciais do seu MySQL local.
 
 ### Back-end
 
