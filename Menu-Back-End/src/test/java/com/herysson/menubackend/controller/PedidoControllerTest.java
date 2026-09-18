@@ -90,11 +90,11 @@ class PedidoControllerTest {
     }
 
     @Test
-    void buscarPorId_quandoNaoEncontrado_deveRetornar500() throws Exception {
+    void buscarPorId_quandoNaoEncontrado_deveRetornar404() throws Exception {
         when(service.buscarPorId(99L)).thenThrow(new NoSuchElementException());
 
         mockMvc.perform(get("/pedidos/99"))
-                .andExpect(status().is5xxServerError());
+                .andExpect(status().isNotFound());
     }
 
     @Test

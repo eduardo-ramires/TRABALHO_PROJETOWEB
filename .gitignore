@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Docker override local
+docker-compose.override.yml
