@@ -1,0 +1,27 @@
+{
+  "name": "trabalho_projetoweb",
+  "version": "1.0.0",
+  "description": "A full-stack web application for restaurant table ordering. Customers scan their table number, browse the menu, and place orders directly from their device. Admins manage products, users, and incoming orders through a dedicated dashboard.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardo-ramires/TRABALHO_PROJETOWEB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eduardo-ramires/TRABALHO_PROJETOWEB/issues"
+  },
+  "homepage": "https://github.com/eduardo-ramires/TRABALHO_PROJETOWEB#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.4"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "dotenv": "^18.0.5"
+  }
+}

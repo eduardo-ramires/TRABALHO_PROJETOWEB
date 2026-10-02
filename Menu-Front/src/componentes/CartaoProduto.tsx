@@ -49,6 +49,7 @@ export function CartaoProduto({ produto, onEditar, onVisualizar }: CartaoProduto
                             className="toggle-input"
                             checked={disponivel}
                             onChange={alternarDisponibilidade}
+                            data-testid={`availability-button-${produto.nome.toLowerCase().replace(/\s+/g, '-')}`}
                         />
                         <span className="toggle-slider" />
                         <span className={disponivel ? "status-disponivel" : "status-indisponivel"}>
@@ -59,9 +60,9 @@ export function CartaoProduto({ produto, onEditar, onVisualizar }: CartaoProduto
             </div>
 
             <div className="cartao-acoes">
-                <button className="btn-visualizar" onClick={() => onVisualizar(produto)}>Ver</button>
-                <button className="btn-editar" onClick={() => onEditar(produto)}>Editar</button>
-                <button className="btn-excluir" onClick={() => deletar(produto.id!)}>Excluir</button>
+                <button className="btn-visualizar" onClick={() => onVisualizar(produto)} data-testid={`view-button-${produto.nome.toLowerCase().replace(/\s+/g, '-')}`}>Ver</button>
+                <button className="btn-editar" onClick={() => onEditar(produto)} data-testid={`edit-button-${produto.nome.toLowerCase().replace(/\s+/g, '-')}`}>Editar</button>
+                <button className="btn-excluir" onClick={() => deletar(produto.id!)} data-testid={`delete-button-${produto.nome.toLowerCase().replace(/\s+/g, '-')}`}>Excluir</button>
             </div>
         </div>
     );

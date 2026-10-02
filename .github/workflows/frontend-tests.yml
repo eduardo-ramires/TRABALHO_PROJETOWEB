@@ -1,0 +1,27 @@
+name: Frontend Unit Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: Menu-Front/package-lock.json
+
+      - name: Install dependencies
+        working-directory: Menu-Front
+        run: npm ci
+
+      - name: Run unit tests
+        working-directory: Menu-Front
+        run: npm run test
